@@ -1,0 +1,202 @@
+#!/bin/bash
+
+# Simple emoji picker for Hyprland
+EMOJI=$(cat << 'EOF'
+😀 grinning face
+😃 grinning face with big eyes
+😄 grinning face with smiling eyes
+😁 beaming face with smiling eyes
+😆 grinning squinting face
+😅 grinning face with sweat
+🤣 rolling on the floor laughing
+😂 face with tears of joy
+🙂 slightly smiling face
+🙃 upside-down face
+😉 winking face
+😊 smiling face with smiling eyes
+😇 smiling face with halo
+🥰 smiling face with hearts
+😍 smiling face with heart-eyes
+🤩 star-struck
+😘 face blowing a kiss
+😗 kissing face
+😚 kissing face with closed eyes
+😙 kissing face with smiling eyes
+😋 face savoring food
+😛 face with tongue
+😜 winking face with tongue
+🤪 zany face
+😝 squinting face with tongue
+🤑 money-mouth face
+🤗 hugging face
+🤭 face with hand over mouth
+🤫 shushing face
+🤔 thinking face
+🤐 zipper-mouth face
+🤨 face with raised eyebrow
+😐 neutral face
+😑 expressionless face
+😶 face without mouth
+😏 smirking face
+😒 unamused face
+🙄 face with rolling eyes
+😬 grimacing face
+🤥 lying face
+😌 relieved face
+😔 pensive face
+😪 sleepy face
+🤤 drooling face
+😴 sleeping face
+😷 face with medical mask
+🤒 face with thermometer
+🤕 face with head-bandage
+🤢 nauseated face
+🤮 face vomiting
+🤧 sneezing face
+🥵 hot face
+🥶 cold face
+😵 dizzy face
+🤯 exploding head
+🤠 cowboy hat face
+🥳 partying face
+😎 smiling face with sunglasses
+🤓 nerd face
+🧐 face with monocle
+😕 confused face
+😟 worried face
+🙁 slightly frowning face
+☹️ frowning face
+😮 face with open mouth
+😯 hushed face
+😲 astonished face
+😳 flushed face
+🥺 pleading face
+😦 frowning face with open mouth
+😧 anguished face
+😨 fearful face
+😰 anxious face with sweat
+😥 sad but relieved face
+😢 crying face
+😭 loudly crying face
+😱 face screaming in fear
+😖 confounded face
+😣 persevering face
+😞 disappointed face
+😓 downcast face with sweat
+😩 weary face
+😫 tired face
+🥱 yawning face
+😤 face with steam from nose
+😡 pouting face
+😠 angry face
+🤬 face with symbols on mouth
+👍 thumbs up
+👎 thumbs down
+👌 OK hand
+✌️ victory hand
+🤞 crossed fingers
+🤟 love-you gesture
+🤘 sign of the horns
+👏 clapping hands
+🙌 raising hands
+👐 open hands
+🤲 palms up together
+🤝 handshake
+🙏 folded hands
+✍️ writing hand
+💪 flexed biceps
+🦾 mechanical arm
+🦿 mechanical leg
+🦵 leg
+🦶 foot
+👂 ear
+🦻 ear with hearing aid
+👃 nose
+🧠 brain
+🦷 tooth
+🦴 bone
+👀 eyes
+👁️ eye
+👅 tongue
+👄 mouth
+💋 kiss mark
+❤️ red heart
+🧡 orange heart
+💛 yellow heart
+💚 green heart
+💙 blue heart
+💜 purple heart
+🖤 black heart
+🤍 white heart
+🤎 brown heart
+💔 broken heart
+❣️ heart exclamation
+💕 two hearts
+💞 revolving hearts
+💓 beating heart
+💗 growing heart
+💖 sparkling heart
+💘 heart with arrow
+💝 heart with ribbon
+💟 heart decoration
+✨ sparkles
+⭐ star
+🌟 glowing star
+💫 dizzy
+🔥 fire
+☀️ sun
+🌙 crescent moon
+⚡ high voltage
+🌈 rainbow
+☁️ cloud
+⛅ sun behind cloud
+⛈️ cloud with lightning and rain
+🌧️ cloud with rain
+❄️ snowflake
+☃️ snowman
+⛄ snowman without snow
+💧 droplet
+💦 sweat droplets
+🌊 water wave
+🎉 party popper
+🎊 confetti ball
+🎈 balloon
+🎁 wrapped gift
+🏆 trophy
+🥇 1st place medal
+🥈 2nd place medal
+🥉 3rd place medal
+⚽ soccer ball
+🏀 basketball
+🏈 american football
+⚾ baseball
+🎾 tennis
+🏐 volleyball
+🏉 rugby football
+🎱 pool 8 ball
+🏓 ping pong
+🏸 badminton
+🥊 boxing glove
+🥋 martial arts uniform
+🥅 goal net
+🎯 direct hit
+⛳ flag in hole
+⛸️ ice skate
+🎣 fishing pole
+🎽 running shirt
+🎿 skis
+🛷 sled
+🥌 curling stone
+🎮 video game
+🕹️ joystick
+🎲 game die
+🎰 slot machine
+🎳 bowling
+EOF
+)
+
+SELECTION=$(echo "$EMOJI" | wofi --dmenu --insensitive --prompt "Emoji" | awk '{print $1}')
+
+if [ -n "$SELECTION" ]; then
+    wtype "$SELECTION"
+fi

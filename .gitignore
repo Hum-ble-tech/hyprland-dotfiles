@@ -1,0 +1,10 @@
+# Ignore these files
+*.log
+*.cache
+.DS_Store
+
+# Don't commit passwords or secrets
+*password*
+*secret*
+*.key
+*.pem
